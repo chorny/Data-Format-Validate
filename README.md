@@ -1,5 +1,5 @@
-# Data::Format
-Data::Format is a Perl module to validate data
+# Data::Format::Validate
+Data::Format::Validate is a Perl module to validate data
 
 ## Instalation
 
@@ -8,7 +8,7 @@ Data::Format is a Perl module to validate data
 This module is avaliable on CPAN, to install it, just run:
 
 <pre>
-  cpan install Data::Format
+  cpan install Data::Format::Validate
 </pre>
 
 ### Manual
@@ -33,58 +33,11 @@ Or, if you're on a platform (like DOS or Windows) that doesn't require the "./" 
 
 ## Examples
 
-### Sanitize data
+### IP
 
-#### Numbers
-
-##### Money
+#### IPV4
 <pre>
-  use Data::Format::Sanitize::Number ':money';
-
-  money 385.00;                     # '385,00'
-  money 385000;                     # '385.000,00'
-  money 3850000;                    # '3.850.000,00'
-  money 3850000.5;                  # '3.850.000,5'
-  money 3850000.56;                 # '3.850.000,56'
-  money 3850000.56665;              # '3.850.000,56665'
-  
-  money_integer 385;                # '385'
-  money_integer 385000;             # '385.000'
-  money_integer 3850000;            # '3.850.000'
-  money_integer 3850000.00;         # '3.850.000'
-  money_integer 3850000.5646;       # '3.850.000'
-  
-  money_decimal;                    # ',00'
-  money_decimal 385;                # ',385'
-  money_decimal 5465564;            # ',5465564'
-
-  money_to_int '385,00';            # 385.00
-  money_to_int '385.000,00';        # 385000
-  money_to_int '3.850.000,00';      # 3850000
-  money_to_int '3.850.000,5';       # 3850000.5
-  money_to_int '3.850.000,56';      # 3850000.56
-  money_to_int '3.850.000,56665';   # 3850000.56665
-</pre>
-
-### Validate data
-
-#### Numbers
-
-##### Money
-<pre>
-  use Data::Format::Validate::Number ':money';
-
-  looks_like_money '3.850.000,5';   # 1
-  looks_like_money '3.850.000,56';  # 1
-  looks_like_money '385,,00';       # 0
-  looks_like_money '3e85,0e0';      # 0
-</pre>
-
-#### Strings
-
-##### IP (ipv4)
-<pre>
-  use Data::Format::Validate::String ':ip';
+  use Data::Format::Validate::IP 'looks_like_ipv4';
 
   looks_like_ipv4 '127.0.0.1';        # 1
   looks_like_ipv4 '192.168.0.1';      # 1
@@ -94,9 +47,9 @@ Or, if you're on a platform (like DOS or Windows) that doesn't require the "./" 
   looks_like_ipv4 '255.255.255.256';  # 0
 </pre>
 
-##### IP (ipv6)
+#### IPV6
 <pre>
-  use Data::Format::Validate::String ':ip';
+  use Data::Format::Validate::IP 'looks_like_ipv6';
 
   looks_like_ipv6 '1762:0:0:0:0:B03:1:AF18';                  # 1
   looks_like_ipv6 '1762:ABC:464:4564:0:BA03:1000:AA1F';       # 1
