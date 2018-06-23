@@ -1,5 +1,5 @@
 package Data::Format::Validate;
-our $VERSION = '0.1';
+our $VERSION = q/0.1/;
 1;
 
 =encoding utf8
