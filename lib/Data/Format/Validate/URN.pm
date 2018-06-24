@@ -1,5 +1,5 @@
 package Data::Format::Validate::URN;
-our $VERSION = q/0.1/;
+our $VERSION = q/0.2/;
 
 use Carp;
 use base 'Exporter';
