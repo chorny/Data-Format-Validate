@@ -2,6 +2,8 @@ package Data::Format::Validate;
 our $VERSION = q/0.1/;
 1;
 
+=pod
+
 =encoding utf8
 
 =head1 NAME
@@ -10,11 +12,43 @@ Data::Format::Validate - A data validating module.
 
 =head1 SYNOPSIS
 
-Module that validate data like IP adressess.
+Module that validate data like URL and IP addressess.
 
 =head1 Utilities
 
 =over 4
+
+=item Any E-mail
+
+    use Data::Format::Validate::Email 'looks_like_any_email';
+
+    looks_like_any_email 'israel.batista@univem.edu.br';    # 1
+    looks_like_any_email '!$%@&[.B471374@*")..$$#!+=.-';    # 1
+
+    looks_like_any_email 'israel.batistaunivem.edu.br';     # 0
+    looks_like_any_email 'israel. batista@univem.edu.br';   # 0
+    looks_like_any_email 'israel.batista@univ em.edu.br';   # 0
+
+=item Common E-mail
+
+    use Data::Format::Validate::Email 'looks_like_common_email';
+
+    looks_like_common_email 'israel.batista@univem.edu.br';         # 1
+    looks_like_common_email 'israel.batista42@univem.edu.br';       # 1
+
+    looks_like_common_email 'israel.@univem.edu.br';                # 0
+    looks_like_common_email 'israel.batistaunivem.edu.br';          # 0
+    looks_like_common_email '!$%@&[.B471374@*")..$$#!+=.-';         # 0
+    looks_like_common_email '!srael.batista@un!vem.edu.br';         # 0
+    looks_like_common_email 'i%rael.bati%ta@univem.edu.br';         # 0
+    looks_like_common_email 'isra&l.batista@univ&m.&du.br';         # 0
+    looks_like_common_email 'israel[batista]@univem.edu.br';        # 0
+    looks_like_common_email 'israel. batista@univem.edu.br';        # 0
+    looks_like_common_email 'israel.batista@univem. edu.br';        # 0
+    looks_like_common_email 'israel.batista@univem..edu.br';        # 0
+    looks_like_common_email 'israel..batista@univem.edu.br';        # 0
+    looks_like_common_email 'israel.batista@@univem.edu.br';        # 0
+    looks_like_common_email 'israel.batista@univem.edu.brasilia';   # 0
 
 =item IP (ipv4)
 
@@ -40,15 +74,47 @@ Module that validate data like IP adressess.
     looks_like_ipv6 '1762:0:0:0:0:B03:1:Ag18';                  # 0
     looks_like_ipv6 '1762:0:0:0:0:AFFFB03:1:AF187';             # 0
 
+=item Any URL
 
+    use Data::Format::Validate::URL 'looks_like_any_url';
+
+    looks_like_any_url 'duckduckgo.com';                              # 1
+    looks_like_any_url 'www.duckduckgo.com';                          # 1
+    looks_like_any_url 'ftp.duckduckgo.com';                          # 1
+    looks_like_any_url 'http://duckduckgo.com';                       # 1
+    looks_like_any_url 'ftp://www.duckduckgo.com';                    # 1
+    looks_like_any_url 'https://www.duckduckgo.com';                  # 1
+    looks_like_any_url 'https://www.youtube.com/watch?v=tqgBN44orKs'; # 1
+
+    looks_like_any_url '.com';                                        # 0
+    looks_like_any_url 'www. duckduckgo';                             # 0
+    looks_like_any_url 'this is not an url';                          # 0
+    looks_like_any_url 'perl.com is the best website';                # 0
+
+=item Only full URL
+
+    use Data::Format::Validate::URL 'looks_like_full_url';
+
+    looks_like_full_url 'ftp://www.duckduckgo.com';                 # 1
+    looks_like_full_url 'http://www.duckduckgo.com';                # 1
+    looks_like_full_url 'https://www.duckduckgo.com';               # 1
+    looks_like_full_url 'http://www.duckduckgo.com/search?q=perl';  # 1
+
+    looks_like_full_url 'duckduckgo.com';                           # 0
+    looks_like_full_url 'www.duckduckgo.com';                       # 0
+    looks_like_full_url 'ftp.duckduckgo.com';                       # 0
+    looks_like_full_url 'http://duckduckgo.com';                    # 0
+    
 =back
 
-=head1 SOURCE AVAILABILITY
+=head1 CONTRIBUITION
 
-This source is in Github:
+This source is on Github:
 
 	https://github.com/rozcovo/Data-Format-Validate
 
 =head1 AUTHOR
 
 Created by Israel Batista <<israel.batista@univem.edu.br>>
+
+=cut
