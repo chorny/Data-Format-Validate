@@ -104,6 +104,25 @@ Module that validate data like URL and IP addressess.
     looks_like_full_url 'www.duckduckgo.com';                       # 0
     looks_like_full_url 'ftp.duckduckgo.com';                       # 0
     looks_like_full_url 'http://duckduckgo.com';                    # 0
+
+=item URN
+
+    use Data::Format::Validate::URN 'looks_like_urn';
+
+    looks_like_urn 'urn:oid:2.16.840';                                  # 1
+    looks_like_urn 'urn:ietf:rfc:2648';                                 # 1
+    looks_like_urn 'urn:issn:0167-6423';                                # 1
+    looks_like_urn 'urn:isbn:0451450523';                               # 1
+    looks_like_urn 'urn:mpeg:mpeg7:schema:2001';                        # 1
+    looks_like_urn 'urn:uci:I001+SBSi-B10000083052';                    # 1
+    looks_like_urn 'urn:lex:br:federal:lei:2008-06-19;11705';           # 1
+    looks_like_urn 'urn:isan:0000-0000-9E59-0000-O-0000-0000-2';        # 1
+    looks_like_urn 'urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66';     # 1
+
+    looks_like_urn 'oid:2.16.840';                                      # 0
+    looks_like_urn 'This is not a valid URN';                           # 0
+    looks_like_urn 'urn:-768hgf-0000-0000-0000';                        # 0
+    looks_like_urn 'urn:this-is-a-realy-big-URN-maybe-the-bigest';      # 0
     
 =back
 
