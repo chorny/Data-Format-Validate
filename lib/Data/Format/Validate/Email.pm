@@ -2,7 +2,6 @@ package Data::Format::Validate::Email;
 our $VERSION = q/0.1/;
 
 use Carp;
-
 use base q/Exporter/;
 
 our @EXPORT_OK = qw/
@@ -19,13 +18,13 @@ our %EXPORT_TAGS = (
 
 sub looks_like_any_email {
 
-    my $value = shift || croak q/Value most be provided/;
-    $value =~ /./;
+    $_ = shift || croak q/Value most be provided/;
+    /./
 }
 
 sub looks_like_common_email {
 
-    my $value = shift || croak q/Value most be provided/;
-    $value =~ /./;
+    $_ = shift || croak q/Value most be provided/;
+    /./
 }
 1;
