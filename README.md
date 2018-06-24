@@ -40,7 +40,7 @@ Or, if you're on a platform (like DOS or Windows) that doesn't require the "./" 
   use Data::Format::Validate::Email 'looks_like_any_email';
 
   looks_like_any_email 'israel.batista@univem.edu.br';    # 1
-  looks_like_any_email '!$%@&[.B471374@*")..$$#!+=.-';    # 1
+  looks_like_any_email '!$%@&[.B471374@*")..$$#!+=/\-';    # 1
 
   looks_like_any_email 'israel.batistaunivem.edu.br';     # 0
   looks_like_any_email 'israel. batista@univem.edu.br';   # 0
@@ -56,7 +56,7 @@ Or, if you're on a platform (like DOS or Windows) that doesn't require the "./" 
 
   looks_like_common_email 'israel.@univem.edu.br';                # 0
   looks_like_common_email 'israel.batistaunivem.edu.br';          # 0
-  looks_like_common_email '!$%@&[.B471374@*")..$$#!+=.-';         # 0
+  looks_like_common_email '!$%@&[.B471374@*")..$$#!+=/\-';         # 0
   looks_like_common_email '!srael.batista@un!vem.edu.br';         # 0
   looks_like_common_email 'i%rael.bati%ta@univem.edu.br';         # 0
   looks_like_common_email 'isra&l.batista@univ&m.&du.br';         # 0

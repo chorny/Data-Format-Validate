@@ -50,7 +50,7 @@ Data::Format::Validate::URL - A URL validating module.
 
 Module that validate URL.
 
-=head1 Utilities
+=head1 UTILITIES
 
 =over 4
 

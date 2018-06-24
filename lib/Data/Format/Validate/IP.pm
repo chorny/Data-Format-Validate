@@ -39,9 +39,9 @@ Data::Format::Validate::IP - A IP validating module.
 
 =head1 SYNOPSIS
 
-Module that validate IP addressess.
+Module that validate IP addresses.
 
-=head1 Utilities
+=head1 UTILITIES
 
 =over 4
 

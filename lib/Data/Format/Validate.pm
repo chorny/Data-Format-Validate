@@ -12,9 +12,9 @@ Data::Format::Validate - A data validating module.
 
 =head1 SYNOPSIS
 
-Module that validate data like URL and IP addressess.
+Module that validate data like URL and IP addresses.
 
-=head1 Utilities
+=head1 UTILITIES
 
 =over 4
 
@@ -23,7 +23,7 @@ Module that validate data like URL and IP addressess.
     use Data::Format::Validate::Email 'looks_like_any_email';
 
     looks_like_any_email 'israel.batista@univem.edu.br';    # 1
-    looks_like_any_email '!$%@&[.B471374@*")..$$#!+=.-';    # 1
+    looks_like_any_email '!$%@&[.B471374@*")..$$#!+=/\-';    # 1
 
     looks_like_any_email 'israel.batistaunivem.edu.br';     # 0
     looks_like_any_email 'israel. batista@univem.edu.br';   # 0
@@ -38,7 +38,7 @@ Module that validate data like URL and IP addressess.
 
     looks_like_common_email 'israel.@univem.edu.br';                # 0
     looks_like_common_email 'israel.batistaunivem.edu.br';          # 0
-    looks_like_common_email '!$%@&[.B471374@*")..$$#!+=.-';         # 0
+    looks_like_common_email '!$%@&[.B471374@*")..$$#!+=/\-';         # 0
     looks_like_common_email '!srael.batista@un!vem.edu.br';         # 0
     looks_like_common_email 'i%rael.bati%ta@univem.edu.br';         # 0
     looks_like_common_email 'isra&l.batista@univ&m.&du.br';         # 0

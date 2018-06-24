@@ -35,9 +35,9 @@ Data::Format::Validate - A URN validating module.
 
 =head1 SYNOPSIS
 
-Module that validate URN addressess.
+Module that validate URN addresses.
 
-=head1 Utilities
+=head1 UTILITIES
 
 =over 4
 
