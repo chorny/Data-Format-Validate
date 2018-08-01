@@ -18,8 +18,8 @@ our %EXPORT_TAGS = (
 
 sub looks_like_any_url ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $url = shift || croak q/Value must be provided/;
+    $url =~ /^
         ((https?|ftp):\/\/)?
         [a-z0-9-]+(\.[a-z0-9-]+)+
         ([\/?].*)?
@@ -28,8 +28,8 @@ sub looks_like_any_url ($) {
 
 sub looks_like_full_url ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $url = shift || croak q/Value must be provided/;
+    $url =~ /^
         (https?|ftp):\/\/
         (www|ftp)\.
         [a-z0-9-]+(\.[a-z0-9-]+)+

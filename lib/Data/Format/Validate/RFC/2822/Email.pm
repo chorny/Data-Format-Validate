@@ -16,8 +16,8 @@ our %EXPORT_TAGS = (
 
 sub looks_like_email ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $email = shift || croak q/Value must be provided/;
+    $email =~ /^
     $/ix
 }
 1;

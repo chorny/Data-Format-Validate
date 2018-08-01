@@ -18,8 +18,8 @@ our %EXPORT_TAGS = (
 
 sub looks_like_absolute_unc ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $unc = shift || croak q/Value must be provided/;
+    $unc =~ /^
         (?:[a-z]:|\\\\[a-z0-9_.\$]+\\[a-z0-9_.\$]+)\\
         (?:[^\\\/:*?"<>|\r\n]+\\)*
         [^\\\/:*?"<>|\r\n]*
@@ -28,8 +28,8 @@ sub looks_like_absolute_unc ($) {
 
 sub looks_like_relative_unc ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $unc = shift || croak q/Value must be provided/;
+    $unc =~ /^
         (?:
             (?:[a-z]:|\\\\[a-z0-9_.\$]+\\[a-z0-9_.\$]+)\\
             |

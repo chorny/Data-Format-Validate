@@ -18,14 +18,14 @@ our %EXPORT_TAGS = (
 
 sub looks_like_any_email {
 
-    $_ = shift || croak q/Value most be provided/;
-    /^\S+@\S+$/
+    my $email = shift || croak q/Value most be provided/;
+    $email =~ /^\S+@\S+$/
 }
 
 sub looks_like_common_email {
 
-    $_ = shift || croak q/Value most be provided/;
-    /^\w+(?:\.\w+)*@(?:[A-Z0-9-]+\.)+[A-Z]{2,6}$/i
+    my $email = shift || croak q/Value most be provided/;
+    $email =~ /^\w+(?:\.\w+)*@(?:[A-Z0-9-]+\.)+[A-Z]{2,6}$/i
 }
 1;
 

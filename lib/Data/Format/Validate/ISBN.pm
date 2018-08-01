@@ -20,23 +20,23 @@ our %EXPORT_TAGS = (
 
 sub looks_like_isbn ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $isbn = shift || croak q/Value must be provided/;
+    $isbn =~ /^
         
     $/x
 }
 
 sub looks_like_isbn_10 ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $isbn = shift || croak q/Value must be provided/;
+    $isbn =~ /^
     $/x
 }
 
 sub looks_like_isbn_13 ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $isbn = shift || croak q/Value must be provided/;
+    $isbn =~ /^
     $/x
 }
 1;

@@ -18,14 +18,14 @@ our %EXPORT_TAGS = (
 
 sub looks_like_ipv4 ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+    my $ip = shift || croak q/Value must be provided/;
+    $ip =~ /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
 }
 
 sub looks_like_ipv6 ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i
+    my $ip = shift || croak q/Value must be provided/;
+    $ip =~ /^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i
 }
 1;
 

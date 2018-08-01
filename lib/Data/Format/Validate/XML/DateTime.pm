@@ -18,15 +18,15 @@ our %EXPORT_TAGS = (
 
 sub looks_like_datetime ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $date_time = shift || croak q/Value must be provided/;
+    $date_time =~ /^
     $/x
 }
 
 sub looks_like_full_datetime ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $date_time = shift || croak q/Value must be provided/;
+    $date_time =~ /^
     $/x
 }
 1;

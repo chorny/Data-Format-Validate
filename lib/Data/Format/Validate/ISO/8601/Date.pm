@@ -24,36 +24,36 @@ our %EXPORT_TAGS = (
 
 sub looks_like_date ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $date = shift || croak q/Value must be provided/;
+    $date =~ /^
     $/x
 }
 
 sub looks_like_year_week ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $date = shift || croak q/Value must be provided/;
+    $date =~ /^
     $/x
 }
 
 sub looks_like_year_month ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $date = shift || croak q/Value must be provided/;
+    $date =~ /^
     $/x
 }
 
 sub looks_like_year_ordinal ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $date = shift || croak q/Value must be provided/;
+    $date =~ /^
     $/x
 }
 
 sub looks_like_year_week_date ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $date = shift || croak q/Value must be provided/;
+    $date =~ /^
     $/x
 }
 1;

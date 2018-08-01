@@ -16,8 +16,8 @@ our %EXPORT_TAGS = (
 
 sub looks_like_date ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $date = shift || croak q/Value must be provided/;
+    $date =~ /^
     $/x
 }
 1;

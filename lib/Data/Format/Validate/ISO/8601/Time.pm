@@ -22,29 +22,29 @@ our %EXPORT_TAGS = (
 
 sub looks_like_timezone ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $time = shift || croak q/Value must be provided/;
+    $time =~ /^
     $/x
 }
 
 sub looks_like_full_time ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $time = shift || croak q/Value must be provided/;
+    $time =~ /^
     $/x
 }
 
 sub looks_like_hour_minute ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $time = shift || croak q/Value must be provided/;
+    $time =~ /^
     $/x
 }
 
 sub looks_like_hour_minute_second ($) {
 
-    $_ = shift || croak q/Value must be provided/;
-    /^
+    my $time = shift || croak q/Value must be provided/;
+    $time =~ /^
     $/x
 }
 1;

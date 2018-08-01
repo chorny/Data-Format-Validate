@@ -16,8 +16,8 @@ our %EXPORT_TAGS = (
 
 sub looks_like_urn ($) {
 
-    $_ = shift;
-    /^
+    my $urn = shift;
+    $urn =~ /^
         urn:
         [A-Z0-9][A-Z0-9-]{0,31}:
         [-A-Z0-9()+,\\.:=@;\$_!*'%\/?#]+
