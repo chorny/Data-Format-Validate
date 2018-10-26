@@ -18,6 +18,11 @@ my $builder = Module::Build->new(
     build_requires => {
         q/Test::Simple/ => q/1.302136/
     }
+    meta_merge => {
+        resources => {
+            repository => 'http://github.com/rozcovo/Data-Format-Validate',
+        },
+    },
 );
 
 $builder->create_build_script;
